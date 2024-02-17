@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  color: #351d6b;
+  font-size: 18px;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+button {
+  height: 48px;
+  width: 100%;
+  background: #351d6b;
+  color: #ffa100;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27.28;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+button.special {
+  background-color: #ffa10040;
+  color: #351d6b;
+}
+
+b {
+  font-family: Helvetica, sans-serif;
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 110.39px;
+}
+
+b.even {
+  color: #e4d9fe;
+}
+
+b {
+  color: hsla(38, 100%, 50%, 0.253);
+}
+
+section.one {
+  background: linear-gradient(
+    0.05deg,
+    rgba(228, 217, 254, 0) -0.1%,
+    rgba(228, 217, 254, 0.7) 22.87%,
+    #e4d9fe 44.83%,
+    rgba(228, 217, 254, 0.7) 68.38%,
+    rgba(228, 217, 254, 0) 100.17%
+  );
+}
+
+section.two {
+  background: linear-gradient(
+    0.05deg,
+    rgba(255, 161, 0, 0) -0.1%,
+    rgba(255, 161, 0, 0.05) 22.87%,
+    rgba(255, 161, 0, 0.15) 47.53%,
+    rgba(255, 161, 0, 0.1) 73.15%,
+    rgba(255, 161, 0, 0) 100.17%
+  );
+}
