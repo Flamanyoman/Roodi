@@ -5,6 +5,7 @@ import placeholder from '../../assets/images/phoneplaceholder.png';
 import iconsmall from '../../assets/images/iconsmall.svg';
 import React, { useEffect, useState } from 'react';
 import SmartDisplayIcon from '@mui/icons-material/SmartDisplay';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Home = () => {
   const [header2, setHeader2] = useState(false);
@@ -24,6 +25,10 @@ const Home = () => {
 
   const handlePopup = () => {
     setPopup({ ...popup, type1: true });
+  };
+
+  const handlePopup2 = () => {
+    setPopup({ ...popup, type2: true });
   };
 
   return (
@@ -50,7 +55,10 @@ const Home = () => {
               alt='roodi logo'
             />
 
-            <button className=' hidden lg:w-[353px] lg:h-[48px] lg:flex items-center justify-center'>
+            <button
+              className=' hidden lg:w-[353px] lg:h-[48px] lg:flex items-center justify-center'
+              onClick={handlePopup2}
+            >
               JOIN THE WAITLIST
             </button>
           </div>
@@ -125,7 +133,7 @@ const Home = () => {
         </div>
 
         <div className=' mx-[20px] mt-[60px] lg:mx-[100px]'>
-          <button className='lg:w-[353px] lg:h-[48px]'>
+          <button className='lg:w-[353px] lg:h-[48px]' onClick={handlePopup2}>
             JOIN THE WAITLIST
           </button>
         </div>
@@ -300,7 +308,7 @@ const Home = () => {
             </p>
 
             <div className='mx-[20px] mt-[30px] lg:w-[353px] lg:h-[48px]'>
-              <button>JOIN THE WAITLIST</button>
+              <button onClick={handlePopup2}>JOIN THE WAITLIST</button>
             </div>
           </div>
         </div>
@@ -403,7 +411,7 @@ const Home = () => {
             </div>
 
             <div className=' mt-[65px] lg:w-[353px] lg:h-[48px] lg:mx-auto lg:text-[20px] lg:leading-[27.78px]'>
-              <button>JOIN THE WAITLIST</button>
+              <button onClick={handlePopup2}>JOIN THE WAITLIST</button>
             </div>
           </div>
         </section>
@@ -511,6 +519,94 @@ const Home = () => {
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
             allowfullscreen
           ></iframe>
+        </div>
+      )}
+
+      {popup.type2 && (
+        <div
+          className='w-full h-full bg-[#351D6B40] fixed top-0 left-0 z-20 flex items-center justify-center'
+          onClick={() => setPopup({ ...popup, type2: !popup.type2 })}
+        >
+          <div
+            className='max-w-[430px] max-h-[932px] w-[312.5px] min-h-[552.4px] lg:min-h-[502.4px] border-[3px] rounded-[10px] border-[#351D6B40] bg-[#E4D9FE] transform scale-125 lg:scale-100'
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className='flex items-center flex-row-reverse p-[10px]'>
+              <CloseIcon
+                className='text-[#FF0000] !text-[20px]'
+                onClick={() => setPopup({ ...popup, type2: !popup.type2 })}
+              />
+            </div>
+
+            <div className='flex items-center justify-between max-w-[100%] mx-[16px]'>
+              <h2 className='w-[133.6px] h-[68.4px] text-[28.8px] leading-[39.28px] font-[700]'>
+                Join the waitlist
+                <span className='text-[#FFA100] font-[1500] text-[45px]'>
+                  &nbsp;_
+                </span>
+              </h2>
+              <p className='flex flex-col items-end justify-end w-[44.8px] h-[70.4px]'>
+                <span className='text-[13px] font-[900] leading-[14.184px]'>
+                  22
+                </span>
+
+                <span className='h-[25.6px] font-[700] text-[9.6px] leading-[16.37px] text-end'>
+                  schools on the list
+                </span>
+              </p>
+            </div>
+
+            <form
+              className='mt-[28px] flex flex-col items-center justify-between mx-[16px]'
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <div className='input__box'>
+                <label htmlFor='first-name'>Your first name *</label>
+
+                <input type='text' id='first-name' placeholder='e.g. Jane' />
+              </div>
+
+              <div className='input__box'>
+                <label htmlFor='first-name'>Your last name</label>
+
+                <input type='text' id='first-name' placeholder='e.g. Doe' />
+              </div>
+
+              <div className='input__box'>
+                <label htmlFor='first-name'>
+                  What’s the name of your school? *
+                </label>
+
+                <input
+                  type='text'
+                  id='first-name'
+                  placeholder='e.g. Mercyland International School'
+                />
+              </div>
+
+              <div className='input__box'>
+                <label htmlFor='first-name'>Your email address *</label>
+
+                <input
+                  type='email'
+                  id='first-name'
+                  placeholder='e.g. janedoe@school.com'
+                />
+              </div>
+
+              <div className='input__box'>
+                <label htmlFor='first-name'>Your phone number</label>
+
+                <input
+                  type='tel'
+                  id='first-name'
+                  placeholder='e.g. 08102345678'
+                />
+              </div>
+
+              <button className='h-[38.4px] my-[10px]'>Submit</button>
+            </form>
+          </div>
         </div>
       )}
     </>

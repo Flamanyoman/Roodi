@@ -71,6 +71,30 @@ section.two {
   );
 }
 
+.input__box {
+  max-width: 312.5px;
+}
+
+.input__box > label {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 15.28px;
+}
+
+.input__box > input {
+  height: 40px;
+  width: 100%;
+  background-color: #ffffff4d;
+  color: #351d6b59;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 17.456px;
+  border-radius: 10px;
+  border-bottom: 1px solid #ffa100;
+  margin-bottom: 8px;
+  padding: 0 0 0 10px;
+}
+
 /* Styles for screens with a width greater than 1024px */
 @media screen and (min-width: 1400px) {
   body {
