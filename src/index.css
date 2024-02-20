@@ -2,10 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: #351d6b;
   font-size: 18px;
   font-family: 'Nunito Sans', sans-serif;
+  margin: 0 auto;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 button {
@@ -62,4 +69,12 @@ section.two {
     rgba(255, 161, 0, 0.1) 73.15%,
     rgba(255, 161, 0, 0) 100.17%
   );
+}
+
+/* Styles for screens with a width greater than 1024px */
+@media screen and (min-width: 1400px) {
+  body {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
 }

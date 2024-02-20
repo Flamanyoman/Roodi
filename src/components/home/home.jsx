@@ -1,9 +1,31 @@
 import './home.css';
 import { Helmet } from 'react-helmet';
-import logo from '../../assets/images/Roodi.png';
+import logo from '../../assets/images/logo.svg';
 import placeholder from '../../assets/images/phoneplaceholder.png';
+import iconsmall from '../../assets/images/iconsmall.svg';
+import React, { useEffect, useState } from 'react';
+import SmartDisplayIcon from '@mui/icons-material/SmartDisplay';
 
 const Home = () => {
+  const [header2, setHeader2] = useState(false);
+  const [popup, setPopup] = useState({
+    type1: false,
+
+    type2: false,
+  });
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', () =>
+        setHeader2(window.pageYOffset > 10)
+      );
+    }
+  }, []);
+
+  const handlePopup = () => {
+    setPopup({ ...popup, type1: true });
+  };
+
   return (
     <>
       {/* all meta information regarding this page  */}
@@ -11,12 +33,46 @@ const Home = () => {
         <title>Home | Roodi</title>
       </Helmet>
 
-      <div className='relative'>
-        <div className='w-full h-[108px] flex items-center justify-center lg:justify-start lg:h-[99px] lg:border-b-[2px] lg:border-[#351D6B59]'>
-          <img className='w-[205px] h-[175px]' src={logo} alt='roodi logo' />
-        </div>
+      {header2 && (
+        <header
+          className={`w-full ${
+            header2 ? 'h-[60px] sticky top-0 bg-[white] z-[15]' : 'h-[108px]'
+          } flex items-center justify-center lg:justify-start lg:h-[77px] lg:border-b-[2px] lg:border-[#351D6B59] transition-all duration-[10] ease-in-out`}
+        >
+          <div
+            className={`h-[80px] w-[100%]  flex items-center justify-between mx-[20px] ${
+              !header2 && 'hidden'
+            }`}
+          >
+            <img
+              className='h-[76px] w-[80px]'
+              src={iconsmall}
+              alt='roodi logo'
+            />
 
+            <button className=' hidden lg:w-[353px] lg:h-[48px] lg:flex items-center justify-center'>
+              JOIN THE WAITLIST
+            </button>
+          </div>
+        </header>
+      )}
+
+      <div className='relative'>
         {/* mobile svg  */}
+
+        {!header2 && (
+          <div
+            className={`w-full ${
+              header2 ? 'h-[60px] sticky top-0 bg-[white] z-[15]' : 'h-[108px]'
+            } flex items-center justify-center lg:justify-start lg:h-[99px] lg:border-b-[2px] lg:border-[#351D6B59] transition-all duration-[10] ease-in-out`}
+          >
+            <img
+              className={`w-[205px] h-[175px] ${header2 && 'hidden'}`}
+              src={logo}
+              alt='roodi logo'
+            />
+          </div>
+        )}
         <svg
           className='absolute top-[54px] z-[-1] w-full lg:hidden'
           width='100%'
@@ -76,7 +132,7 @@ const Home = () => {
       </div>
 
       <div className=' min-h-[582px] mx-[20px] mt-[43px] flex items-center justify-center lg:w-[297.94px] lg:absolute lg:top-[219px] lg:left-[852px]'>
-        <img className='w-[289px] lg:w-fuull' src={placeholder} alt='Roodi' />
+        <img className='w-[289px] lg:w-full' src={placeholder} alt='Roodi' />
       </div>
 
       <div className=' min-h-[1093px] mt-[17px]'>
@@ -93,7 +149,7 @@ const Home = () => {
 
             {/* one */}
             <div className='relative mt-[10.85px] flex lg:mx-[100px] lg:mt-[100px]'>
-              <b className='absolute z-[-1] top-[30px]'>1</b>
+              <b className='absolute top-[30px]'>1</b>
               <h3 className='font-[600] text-[26px] leading-[35.46px] min-h-[105px] ml-[30px] mt-[75px] lg:text-[45px] lg:w-[562px] lg:h-[183px] lg:leading-[61.38px]'>
                 Streamline attendance and detect health risk early with Roll
                 Call™
@@ -135,7 +191,7 @@ const Home = () => {
           {/* three */}
           <section className='one lg:relative lg:h-[730px]'>
             <div className='relative mt-[29.85] flex lg:mx-[100px] lg:mt-[100px]'>
-              <b className='absolute z-[-1] top-[30px]'>3</b>
+              <b className='absolute top-[30px]'>3</b>
               <h3 className='font-[600] text-[26px] leading-[35.46px] min-h-[105px] ml-[30px] mt-[75px] lg:text-[45px] lg:w-[562px] lg:h-[183px] lg:leading-[61.38px]'>
                 Securely record all your students’ scores in one database
               </h3>
@@ -176,7 +232,7 @@ const Home = () => {
           {/* five */}
           <section className='one lg:relative lg:h-[730px]'>
             <div className='relative mt-[29.85] flex lg:mx-[100px] lg:mt-[100px]'>
-              <b className='absolute z-[-1] top-[30px]'>5</b>
+              <b className='absolute top-[30px]'>5</b>
               <h3 className='font-[600] text-[26px] leading-[35.46px] min-h-[105px] ml-[30px] mt-[75px] lg:text-[45px] lg:w-[562px] lg:h-[183px] lg:leading-[61.38px]'>
                 Increase parent engagement with Homework™ assignments
               </h3>
@@ -235,21 +291,6 @@ const Home = () => {
           <div className='mx-[20px] z-[1] max-w-full overflow-hidden lg:flex lg:flex-col lg:items-center'>
             <h2 className='font-[700] text-[40px] leading-[54.56px] mt-[145.33px] min-h-[165px] lg:h-[178px] lg:w-[772px] lg:mt-[251px] lg:text-[65px] lg:leading-[88.66px] lg:text-center'>
               Become an early adopter, pay 70% less forever.
-              <svg
-                className='max-w-100%'
-                width='100%'
-                height='22'
-                viewBox='0 0 333 22'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
-              >
-                <path
-                  d='M2 16.0867C11.9897 15.3292 22.3574 13.5924 32.2918 12.1624C48.7584 9.79218 65.7172 9.2934 82.299 7.69314C97.8515 6.19222 113.406 5.1346 128.969 3.82339C141.999 2.7256 155.092 3.51709 168.143 2.56981C190.64 0.936834 213.291 3.33286 235.76 3.33286C255.904 3.33286 278.185 1.98403 297.73 7.74764C303.543 9.46159 306.403 12.6183 306.048 19.0299C305.934 21.0857 297.13 19.6893 297.782 16.5772C298.478 13.2499 306.301 12.1624 308.82 12.1624C316.215 12.1624 323.638 10.2003 331 10.2003'
-                  stroke='#FFA100'
-                  stroke-width='4'
-                  stroke-linecap='round'
-                />
-              </svg>
             </h2>
 
             <p className='leading-[24.55px] text-[18px] mt-[30px] min-h-[125px] lg:h-[114px] lg:w-[922px] lg:text-[28px] lg:font-[300] lg:leading-[38.19px] lg:mt-[50px]'>
@@ -265,61 +306,17 @@ const Home = () => {
         </div>
 
         <div className='mx-[20px] mt-[26.54px] lg:h-[716px] lg:w-[636px] lg:mx-auto lg:mt-[9px]'>
-          <div className='min-h-[738px] border-[2px] border-[#351D6B4D] rounded-[15px] px-[5%] lg:flex lg:flex-col lg:items-center'>
-            <h2 className='w-full font-[700] text-[38px] leading-[51.83px mt-[50px] min-h-[104px] lg:w-[582px] lg:h-[61px] lg:text-[45px] lg:text-center lg:leading-[61.38px] lg:mt-[30px]'>
-              See how much you’d save.
-            </h2>
+          <div
+            className='min-h-max border-[2px] border-[#351D6B4D] rounded-[15px] lg:flex lg:flex-col lg:items-center relative'
+            onClick={handlePopup}
+          >
+            <img
+              className='w-[100%] h-[100%] rounded-[15px]'
+              src='https://img.youtube.com/vi/SZmOIL5HnXU/hqdefault.jpg'
+              alt='Roodi technologies'
+            />
 
-            <p className='w-full leading-[24.55px] text-[18px] mt-[17px] min-h-[25px] lg:h-[34px] lg:w-[564px] lg:mt-[40px] lg:text-center lg:leading-[34.1px] lg:text-[25px]'>
-              How many students do you have?
-            </p>
-
-            <div className='w-full min-h-[60px] mt-[23px] bg-[#E4D9FE82] rounded-[10px] border-b-[4px] border-b-[#FFA100] flex items-center pl-[15px] lg:h-[80px] lg:w-[500px] lg:pl-[30px] lg:text-[35px] lg:mt-[35px]'>
-              100
-            </div>
-
-            <h3 className='mt-[60px] text-center w-full leading-[34px] text-[26px] min-h-[35px]'>
-              Other schools will pay
-            </h3>
-
-            <h3 className='text-center w-full mt-[5px] min-h-[49px] text-[28px] leading-[38.19px]'>
-              <span className='font-[700] text-[30px] leading-[40.82px] relative'>
-                <svg
-                  className='absolute z-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
-                  width='168'
-                  height='14'
-                  viewBox='0 0 168 14'
-                  fill='none'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    d='M2.0828 11.6985C13.8819 13.1069 25.7855 12.0183 37.6197 11.4575C65.2426 10.1485 92.7649 9.26578 120.227 5.82758C132.439 4.29858 144.631 2.44869 156.964 2.22344C160.066 2.16678 163.241 1.37478 166.255 1.73455'
-                    stroke='#A21D56'
-                    stroke-width='3'
-                    stroke-linecap='round'
-                  />
-                </svg>
-                N4,080,000{' '}
-              </span>
-              /year
-            </h3>
-
-            <h3 className='mt-[40px] text-center text-[26px] leading-[35.46px] min-h-[35px]'>
-              You’ll pay
-            </h3>
-
-            <h3 className='mt-[4px] min-h-[55px] text-center text-[32px] leading-[43.65px]'>
-              <span className='font-[700] text-[40px] leading-[54.65px]'>
-                N1,200,000{' '}
-              </span>
-              /year
-            </h3>
-
-            <div className='w-full flex items-center justify-center'>
-              <button className='special min-h-[39px] mt-[5px] text-[20px] max-w-[218px]'>
-                <span className='font-normal'>Save </span>&nbsp;N2,820,000
-              </button>
-            </div>
+            <SmartDisplayIcon className='absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 !text-[80px] ' />
           </div>
         </div>
 
@@ -501,6 +498,21 @@ const Home = () => {
           </div>
         </footer>
       </div>
+
+      {popup.type1 && (
+        <div
+          className='w-full h-full bg-[#351D6B40] fixed top-0 left-0 z-20 flex items-center justify-center'
+          onClick={() => setPopup({ ...popup, type1: !popup.type1 })}
+        >
+          <iframe
+            className='w-full aspect-video lg:max-w-[900px]'
+            src='https://www.youtube.com/embed/SZmOIL5HnXU?autoplay=1'
+            frameborder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+            allowfullscreen
+          ></iframe>
+        </div>
+      )}
     </>
   );
 };
