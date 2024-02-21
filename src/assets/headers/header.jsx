@@ -1,5 +1,6 @@
 import iconsmall from '../../assets/images/iconsmall.svg';
 import logo from '../../assets/images/logo.svg';
+import { Link } from 'react-router-dom';
 
 export const Header1 = (props) => {
   return (
@@ -13,7 +14,9 @@ export const Header1 = (props) => {
           !props.header2 && 'hidden'
         }`}
       >
-        <img className='h-[76px] w-[80px]' src={iconsmall} alt='roodi logo' />
+        <Link to='investors'>
+          <img className='h-[76px] w-[80px]' src={iconsmall} alt='roodi logo' />
+        </Link>
 
         <button
           className=' hidden lg:w-[353px] lg:h-[48px] lg:flex items-center justify-center'
@@ -35,11 +38,13 @@ export const Header2 = (props) => {
           : 'h-[108px] lg:mr-[20px]'
       } flex items-center justify-center lg:h-[99px] lg:border-b-[2px] lg:border-[#351D6B59] lg:flex lg:justify-between lg:transition-all duration-[10] ease-in-out`}
     >
-      <img
-        className={`w-[205px] h-[175px] ${props.header2 && 'hidden'}`}
-        src={logo}
-        alt='roodi logo'
-      />
+      <Link to='/investors'>
+        <img
+          className={`w-[205px] h-[175px] ${props.header2 && 'hidden'}`}
+          src={logo}
+          alt='roodi logo'
+        />
+      </Link>
 
       <button
         className=' hidden lg:w-[353px] lg:h-[48px] lg:flex items-center justify-center'
@@ -56,7 +61,9 @@ export const Footer = () => {
     <footer>
       <div className='lg:flex lg:mx-[100px] lg:flex-wrap lg:justify-around'>
         <div className='w-full h-[108px] flex items-center justify-center border-t-2 border-[#351D6B1A]'>
-          <img className='w-[205px] h-[175px]' src={logo} alt='roodi logo' />
+          <Link to='/investors'>
+            <img className='w-[205px] h-[175px]' src={logo} alt='roodi logo' />
+          </Link>
         </div>
 
         <div className=' mx-[20px] flex flex-col items-center'>
@@ -66,7 +73,7 @@ export const Footer = () => {
           </p>
 
           <div className='flex justify-between item-center w-[100%] min-h-[30px] mt-[36px]'>
-            <p className='text-[14px] font-[600] flex justify-around items-center'>
+            <p className='text-[14px] font-[600] flex justify-around items-center lg:mx-[20px]'>
               <svg
                 width='19'
                 height='30'
@@ -88,7 +95,7 @@ export const Footer = () => {
               &nbsp; <span className='underline'>+234 (0) 903 164 1365</span>
             </p>
 
-            <p className='text-[14px] font-[600] flex justify-around items-center'>
+            <p className='text-[14px] font-[600] flex justify-around items-center lg:mx-[20px]'>
               <svg
                 width='26'
                 height='20'

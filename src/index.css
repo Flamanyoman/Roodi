@@ -93,6 +93,7 @@ section.two {
   border-bottom: 1px solid #ffa100;
   margin-bottom: 8px;
   padding: 0 0 0 10px;
+  outline: none;
 }
 
 /* Styles for screens with a width greater than 1024px */

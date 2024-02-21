@@ -9,7 +9,7 @@ import useScrollSnap from 'react-use-scroll-snap';
 
 const Investors = () => {
   const scrollRef = useRef(null);
-  useScrollSnap({ ref: scrollRef, duration: 0, delay: 0 });
+  useScrollSnap({ ref: scrollRef, duration: 300, delay: 0 });
 
   const header2 = useHeader();
   const { handlePopup2, popup, setPopup } = usePopup();

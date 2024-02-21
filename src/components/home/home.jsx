@@ -1,6 +1,6 @@
 import './home.css';
 import { Helmet } from 'react-helmet';
-import placeholder from '../../assets/images/phoneplaceholder.png';
+// import placeholder from '../../assets/images/phoneplaceholder.png';
 import SmartDisplayIcon from '@mui/icons-material/SmartDisplay';
 import CloseIcon from '@mui/icons-material/Close';
 import { Header1, Header2, Footer } from '../../assets/headers/header';
@@ -82,7 +82,16 @@ const Home = () => {
       </div>
 
       <div className=' min-h-[582px] mx-[20px] mt-[43px] flex items-center justify-center lg:w-[297.94px] lg:absolute lg:top-[219px] lg:left-[852px]'>
-        <img className='w-[289px] lg:w-full' src={placeholder} alt='Roodi' />
+        <video
+          className='w-[289px] lg:w-full rounded-[45px]'
+          src='https://video.wixstatic.com/video/bac38d_6bcb6c46341649a8847f719adc164349/720p/mp4/file.mp4'
+          alt='Roodi'
+          role='presenta'
+          preload='auto'
+          muted
+          loop
+          autoPlay
+        ></video>
       </div>
 
       <div className=' min-h-[1093px] mt-[17px]'>
@@ -113,7 +122,17 @@ const Home = () => {
             </p>
 
             <div className='flex items-center justify-center w-full min-h-[522px] mt-[40px] lg:h-[550px] lg:w-[272.89px] lg:absolute lg:top-[451px] lg:left-[861px]'>
-              <img className='w-[259px]' src={placeholder} alt='Roodi' />
+              <video
+                className='w-[289px] lg:w-full object-center opacity-100 !bg-transparent text-transparent rounded-[45px]'
+                src='https://video.wixstatic.com/video/bac38d_5c79ccd1cc774c0eafd3a362772435f5/720p/mp4/file.mp4'
+                alt='Roodi'
+                role='presenta'
+                preload='auto'
+                muted
+                loop
+                autoPlay
+                playsInline
+              ></video>
             </div>
           </section>
 
@@ -134,7 +153,17 @@ const Home = () => {
             </p>
 
             <div className='flex items-center justify-center w-full min-h-[522px] mt-[40px] lg:h-[550px] lg:w-[272.89px] lg:absolute lg:top-[97px] lg:left-[146px]'>
-              <img className='w-[259px]' src={placeholder} alt='Roodi' />
+              <video
+                className='w-[289px] lg:w-full object-center opacity-100 !bg-transparent text-transparent rounded-[45px]'
+                src='https://video.wixstatic.com/video/bac38d_b909af2653d04776b62e435062656fb1/720p/mp4/file.mp4'
+                alt='Roodi'
+                role='presenta'
+                preload='auto'
+                muted
+                loop
+                autoPlay
+                playsInline
+              ></video>{' '}
             </div>
           </section>
 
@@ -154,7 +183,17 @@ const Home = () => {
             </p>
 
             <div className='flex items-center justify-center w-full min-h-[522px] mt-[40px] lg:h-[550px] lg:w-[272.89px] lg:absolute lg:top-[97px] lg:left-[838px]'>
-              <img className='w-[259px]' src={placeholder} alt='Roodi' />
+              <video
+                className='w-[289px] lg:w-full object-center opacity-100 !bg-transparent text-transparent rounded-[45px]'
+                src='https://video.wixstatic.com/video/bac38d_616b12f2014a45aab4319432cdb46f19/720p/mp4/file.mp4'
+                alt='Roodi'
+                role='presenta'
+                preload='auto'
+                muted
+                loop
+                autoPlay
+                playsInline
+              ></video>
             </div>
           </section>
 
@@ -175,7 +214,17 @@ const Home = () => {
             </p>
 
             <div className='flex items-center justify-center w-full min-h-[522px] mt-[40px] lg:h-[550px] lg:w-[272.89px] lg:absolute lg:top-[97px] lg:left-[146px]'>
-              <img className='w-[259px]' src={placeholder} alt='Roodi' />
+              <video
+                className='w-[289px] lg:w-full object-center opacity-100 !bg-transparent text-transparent rounded-[45px]'
+                src='https://video.wixstatic.com/video/bac38d_260b770f680f4fd0aedb2278be32d2b7/720p/mp4/file.mp4'
+                alt='Roodi'
+                role='presenta'
+                preload='auto'
+                muted
+                loop
+                autoPlay
+                playsInline
+              ></video>
             </div>
           </section>
 
@@ -195,7 +244,17 @@ const Home = () => {
             </p>
 
             <div className='flex items-center justify-center w-full min-h-[522px] mt-[40px] lg:h-[550px] lg:w-[272.89px] lg:absolute lg:top-[97px] lg:left-[838px]'>
-              <img className='w-[259px]' src={placeholder} alt='Roodi' />
+              <video
+                className='w-[289px] lg:w-full object-center opacity-100 !bg-transparent text-transparent rounded-[45px]'
+                src='https://video.wixstatic.com/video/bac38d_033449f7553549f3af681f74580de95a/720p/mp4/file.mp4'
+                alt='Roodi'
+                role='presenta'
+                preload='auto'
+                muted
+                loop
+                autoPlay
+                playsInline
+              ></video>
             </div>
           </section>
         </div>
@@ -363,11 +422,11 @@ const Home = () => {
 
       {popup.type1 && (
         <div
-          className='w-full h-full bg-[#341d6be8] fixed top-0 left-0 z-20 flex items-center justify-center'
+          className='w-full h-full bg-[#341d6be8] fixed top-0 left-0 z-20 flex items-center justify-center popup'
           onClick={() => setPopup({ ...popup, type1: !popup.type1 })}
         >
           <iframe
-            className='w-full aspect-video lg:max-w-[900px]'
+            className='w-[90%] aspect-video lg:max-w-[900px]'
             src='https://www.youtube.com/embed/SZmOIL5HnXU?autoplay=1'
             frameborder='0'
             allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
@@ -378,11 +437,11 @@ const Home = () => {
 
       {popup.type2 && (
         <div
-          className='w-full h-full bg-[#341d6be8] fixed top-0 left-0 z-20 flex items-center justify-center'
+          className='w-full h-full bg-[#341d6be8] fixed top-0 left-0 z-20 flex items-center justify-center popup'
           onClick={() => setPopup({ ...popup, type2: !popup.type2 })}
         >
           <div
-            className='max-w-[430px] max-h-[932px] w-[312.5px] min-h-[552.4px] lg:min-h-[502.4px] border-[3px] rounded-[10px] border-[#351D6B40] bg-[#E4D9FE] transform scale-125 lg:scale-100'
+            className='max-w-[430px] max-h-[932px] w-[312.5px] min-h-[552.4px] lg:min-h-[502.4px] border-[3px] rounded-[10px] border-[#351D6B40] bg-[#E4D9FE] transform scale-125 lg:scale-100 xs:scale-90'
             onClick={(e) => e.stopPropagation()}
           >
             <div className='flex items-center flex-row-reverse p-[10px]'>

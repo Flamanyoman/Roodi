@@ -38,6 +38,7 @@ module.exports = {
         tall: { raw: '(min-width: 2000px)' },
         maxScreen: { raw: '(max-width: 1050px)' },
         maxScreenMobile: { raw: '(max-width: 768px)' },
+        xs: { raw: '(max-width: 350px)' },
       },
     },
   },
